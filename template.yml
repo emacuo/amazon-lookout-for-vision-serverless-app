@@ -186,7 +186,7 @@ Resources:
       CodeUri: ./functions/CreateManifestFileInS3/
       FunctionName: !Sub ${ResourcePrefix}-create-manifest-file-in-s3
       Handler: lambda_function.handler
-      Runtime: python3.7
+      Runtime: python3.12
       MemorySize: 128
       Policies:
         - Version: '2012-10-17'
@@ -204,7 +204,7 @@ Resources:
       CodeUri: ./functions/CreateS3BucketNotification/
       FunctionName: !Sub ${ResourcePrefix}-create-s3-event-notification
       Handler: lambda_function.handler
-      Runtime: python3.7
+      Runtime: python3.12
       MemorySize: 128
       Policies:
         - Version: '2012-10-17'
@@ -222,7 +222,7 @@ Resources:
       CodeUri: ./functions/DynamoDbToFirehose/
       FunctionName: !Sub ${ResourcePrefix}-dynamodb-to-firehose
       Handler: lambda_function.lambda_handler
-      Runtime: python3.7
+      Runtime: python3.12
       MemorySize: 128
       Timeout: 30
       Environment:
@@ -653,7 +653,7 @@ Resources:
     Type: 'AWS::Serverless::Function'
     Properties:
       Handler: startStateMachineExecution.lambda_handler
-      Runtime: python3.7
+      Runtime: python3.12
       FunctionName: !Sub ${ResourcePrefix}-start-state-machine
       CodeUri: ./functions/DetectAnomaliesFunction/
       Description: Starts anomaly detection state machine
@@ -680,7 +680,7 @@ Resources:
     Type: 'AWS::Serverless::Function'
     Properties:
       Handler: startDetectAnomalies.lambda_handler
-      Runtime: python3.7
+      Runtime: python3.12
       FunctionName: !Sub ${ResourcePrefix}-start-detect-anomalies
       CodeUri: ./functions/DetectAnomaliesFunction/
       Description: Uses Lookout For Vision APIs to classify an image as anomalous or not and stores the results received in DynamoDB.
@@ -711,7 +711,7 @@ Resources:
     Type: 'AWS::Serverless::Function'
     Properties:
       Handler: putItemInDynamoDb.lambda_handler
-      Runtime: python3.7
+      Runtime: python3.12
       FunctionName: !Sub ${ResourcePrefix}-putitem-in-dynamodb
       CodeUri: ./functions/DetectAnomaliesFunction/
       Description: Stores anomaly detection results in DynamoDB
@@ -734,7 +734,7 @@ Resources:
     Type: 'AWS::Serverless::Function'
     Properties:
       Handler: publishMessage.lambda_handler
-      Runtime: python3.7
+      Runtime: python3.12
       FunctionName: !Sub ${ResourcePrefix}-publish-message-to-sns
       CodeUri: ./functions/DetectAnomaliesFunction/
       Description: Publish message to SNS if a defect is detected
